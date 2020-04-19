@@ -19,7 +19,7 @@ stages:
     - bash: echo "Do the build"
 - stage: DevDeploy
   jobs:
-  - deploymnet: DevDeployJob
+  - deployment: DevDeployJob
     environment: Dev
     strategy:
       runOnce:
@@ -28,7 +28,7 @@ stages:
             - script: echo deploy to Dev
 - stage: QADeploy
   jobs:
-  - deploymnet: DevDeployJob
+  - deployment: DevDeployJob
     environment: QA
     strategy:
       runOnce:
@@ -36,6 +36,6 @@ stages:
           steps:
             - script: echo deploy to Dev
 
-steps:
-- script: echo Running on $(operatingSystem)!
-  displayName: 'Run a one-line script'
+# steps:
+# - script: echo Running on $(operatingSystem)!
+#   displayName: 'Run a one-line script'
